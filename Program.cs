@@ -5,22 +5,26 @@
 using System;
 using static System.Console;
 
-string[] array = new string[4] { "hello", "2", "world", ":-)" };
+string[] array = new string[6] { "your", "hello", "2", "world", ":-)", "win" };
 var str = string.Join(" ", array);
 WriteLine("[{0}]", string.Join(", ", array));
 WriteLine();
-WriteLine("[{0}]", string.Join(", ", GetArray(array)));
+WriteLine("[{0}]", string.Join(", ", GetNewArray(array)));
 
-string[] GetArray(string[] array)
+string[] GetNewArray(string[] array)
 {
-    //string result = string.Empty;
-    string[] arr = new string[array.GetLength(0)];
+    int j = 0;
+    string[] newArray = new string[array.GetLength(0)];
+
     for (int i = 0; i < array.GetLength(0); i++)
     {
         if (array[i].Length <= 3)
-            arr[i] = array[i];
-
-        // result = Convert.ToString(array[i]);
+        {
+            newArray[j] = array[i];
+            j++;
+        }
     }
-    return arr;
+    Array.Resize(ref newArray, j);
+    return newArray;
 }
+
