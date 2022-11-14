@@ -5,18 +5,21 @@
 using System;
 using static System.Console;
 
-string[] array = new string[6] { "your", "hello", "2", "world", ":-)", "win" };
-var str = string.Join(" ", array);
+WriteLine("Введите что-нибудь через пробел: ");
+//string[] array = new string[4] { "Kazan", "hello", "-2", "computer science" };
+string[] array = ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
 WriteLine("[{0}]", string.Join(", ", array));
 WriteLine();
 WriteLine("[{0}]", string.Join(", ", GetNewArray(array)));
 
+
 string[] GetNewArray(string[] array)
 {
     int j = 0;
-    string[] newArray = new string[array.GetLength(0)];
+    string[] newArray = new string[array.Length];
 
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
         {
@@ -27,4 +30,3 @@ string[] GetNewArray(string[] array)
     Array.Resize(ref newArray, j);
     return newArray;
 }
-
