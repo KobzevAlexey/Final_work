@@ -5,12 +5,8 @@
 using System;
 using static System.Console;
 
-WriteLine("Введите что-нибудь через пробел: ");
-//string[] array = new string[4] { "Kazan", "hello", "-2", "computer science" };
-string[] array = ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+string[] array = new string[4] { "hello", "2", "World", ":-)" };
 
-WriteLine("[{0}]", string.Join(", ", array));
-WriteLine();
 WriteLine("[{0}]", string.Join(", ", GetNewArray(array)));
 
 
